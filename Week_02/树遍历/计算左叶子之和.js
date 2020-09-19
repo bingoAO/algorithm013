@@ -9,6 +9,7 @@
 /**
  * @param {TreeNode} root
  * @return {number}
+ * 判断是叶子节点而且是子叶子节点
  */
 var sumOfLeftLeaves = function(root) {
   let calcSum = (root,isRootLeft) => {
