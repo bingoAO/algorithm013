@@ -28,9 +28,12 @@ const findWord = (tried,visited,result,prefix,board,row,col) => {
   prefix = prefix + board[row][col];
   if(visited[row + "_" + col])return;
   visited[row + "_" + col] = true;
-  if(tried.search(prefix)){
+
+  let current = tried.search(prefix);
+  if(current){
       result.push(prefix);
-      tried.remove(prefix);
+      current.isEnd = false;
+      // tried.remove(prefix);
   }
   if (tried.startWith(prefix)){
       // 上 下 左 右
@@ -88,26 +91,26 @@ search(word){
     let tried = this.root;
     for(let ch of word){
         if(!tried.next || !tried.next[ch]){
-            return false;
+            return null;
         }
         tried = tried.next[ch];
     }
-    return tried.isEnd;
+    return tried.isEnd ? tried : null;
 }
-remove(word){
-  let tried = this.root;
-    for(let ch of word){
-        if(!tried.next || !tried.next[ch]){
-            return false;
-        }
-        tried = tried.next[ch];
-    }
-    if(tried.isEnd){
-      tried.isEnd = false;
-      return true;
-    }
-    return false;
-}
+// remove(word){
+//   let tried = this.root;
+//     for(let ch of word){
+//         if(!tried.next || !tried.next[ch]){
+//             return false;
+//         }
+//         tried = tried.next[ch];
+//     }
+//     if(tried.isEnd){
+//       tried.isEnd = false;
+//       return true;
+//     }
+//     return false;
+// }
 }
 
 let words = ["oath","pea","eat","rain","hi","hit",'rn','at',"eate"];
