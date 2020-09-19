@@ -117,4 +117,12 @@ let board = [
   ['i','h','i','t'],
   ['i','f','i','t']
 ]
+
+// output
+// [
+//   'oath', 'at',
+//   'rn',   'eat',
+//   'eate', 'hi',
+//   'hit'
+// ]
 console.log(findWords(board,words));
