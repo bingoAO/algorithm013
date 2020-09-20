@@ -25,3 +25,25 @@ var subsets = function(nums) {
   combinate(subsets,0);
   return result;
 }
+
+var subsets = function(nums){
+  let result = [];
+  var calcSubSet = function(result,nums,start,prev){
+      if(start >= nums.length){
+          return;
+      }
+      // 将本轮的数字推进去
+      let current = [...prev,nums[start]];
+      result.push(current);
+      // 不选取本轮的数字
+      calcSubSet(result,nums,start+1,prev);
+      // 选取本轮的数字
+      calcSubSet(result,nums,start+1,current);
+      // for(let i = start;i<nums.length;i++){
+          
+      // }
+  }
+  result.unshift([]);
+  calcSubSet(result,nums,0,[]);
+  return result;
+}
