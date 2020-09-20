@@ -1,3 +1,10 @@
+/**
+ * @param {*} M 
+ * 1. make set
+ * 2. find element root parent
+ * 3. combine root parent
+ * 注意合并的是parent而不是当前的元素，最高的情况会是1-》2-》3，而不是1-》2，因为是在查找的时候进行路径压缩
+ */
 var findCircleNum = function(M) {
   let count = M.length;
   let parents = Array.from(M).map((item,index)=>{
